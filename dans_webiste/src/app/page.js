@@ -15,13 +15,15 @@ const HomePage = () => {
     <div className="container mx-auto">
       <div className="p-4">
         <h2 className="font-bold text-lg">Learning with Dan</h2>
-        <p className="h-[1000px]"> Come learn with me!</p>
-      </div>
-    </div>
-    <div>
-      <a href="https://www.learningwithdan.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
+        <p className="h-[1000px]"> Come learn with me!
+        <a href="https://www.learningwithdan.com" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         className="text-blue-500 hover:text-blue-700">
         LearningWithDan.com
       </a>
+        </p>
+      </div>
     </div>
   </div>
   );

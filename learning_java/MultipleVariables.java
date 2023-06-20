@@ -23,8 +23,12 @@ public class MultipleVariables {
         int myInt = (int) myDouble;
         System.out.println(myInt + myDouble);
 
+        float myD;
+        myD = 4.555f;
+
         String newString = String.valueOf(myDouble);
         System.out.print(newString);
+        System.out.println(myD);
 
     }
 
