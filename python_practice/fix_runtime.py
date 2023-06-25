@@ -1,16 +1,14 @@
 import random
 import time
 
+
 def generate_random_list(n):
     result = list(range(1, n + 1))
     random.shuffle(result)
     return result[:n]
 
 
-## Don't edit testcases below, it's cheating!
-
-
-
+# Don't edit testcases below, it's cheating!
 # SMALL TEST
 start = time.time()
 generate_random_list(100)
