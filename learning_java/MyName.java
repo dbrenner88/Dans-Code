@@ -45,7 +45,7 @@ public class MyName {
          * System.out.println("This is an example of an int " + negInt);
          * 
          * long longNum = 209853052345L;
-         * System.out.println("This is an example of a long data type: " + longNum) 
+         * System.out.println("This is an example of a long data type: " + longNum)
          * 
          * float myFloat = 1.235f;
          * System.out.println("This is a float example: " + myFloat);
@@ -93,15 +93,8 @@ public class MyName {
         System.out.println(myInt);
 
         // operators example
-        int x = 100 + 50
-                , y
-                , sum1 = x
-                , sum2 = sum1 + 250
-                , sum3 = sum2 + sum2
-                , sub1 = sum3 - sum1
-                , mult1 = sub1 * x
-                , inc1 = ++x
-                , dec1 = --x;
+        int x = 100 + 50, y, sum1 = x, sum2 = sum1 + 250, sum3 = sum2 + sum2, sub1 = sum3 - sum1, mult1 = sub1 * x,
+                inc1 = ++x, dec1 = --x;
         double div1 = sub1 / 7d, mod1 = inc1 % sub1;
         System.out.println("Operators:");
         System.out.println(sum1);
@@ -114,38 +107,40 @@ public class MyName {
         System.out.println(inc1);
         System.out.println(dec1);
 
-        //assignment operators
-         System.out.println("Assignment Opperator Examples:");
+        // assignment operators
+        System.out.println("Assignment Opperator Examples:");
         x = 10;
         System.out.println(x);
-        x +=5;
+        x += 5;
         System.out.println(x);
-        x-=3;
+        x -= 3;
         System.out.println(x);
-        x *=13;
+        x *= 13;
         System.out.println(x);
-        x /=8;
-         System.out.println(x);
-         x %=4;
-         double xDub = (double) x % 4d;
-         System.out.println(xDub);
-         x &=8;
-         System.out.println(x);
-         x |= 3;
-         System.out.println(x);
-         sum1 ^= 3;
-         System.out.println(sum1);
-         sum1 >>= 3;
-         System.out.println(sum1);
-         sum1 <<= 3;
-         System.out.println(sum1);
+        x /= 8;
+        System.out.println(x);
+        x %= 4;
+        double xDub = (double) x % 4d;
+        System.out.println(xDub);
+        x &= 8;
+        System.out.println(x);
+        x |= 3;
+        System.out.println(x);
+        sum1 ^= 3;
+        System.out.println(sum1);
+        sum1 >>= 3;
+        System.out.println(sum1);
+        sum1 <<= 3;
+        System.out.println(sum1);
 
-         // Comparison Operators
-         x = 5; 
-         y = 3;
-         System.out.lprintln("Comp Operators:")
-         System.out.println(x > y);
-         System.out.println(x > y);
-        
+        // Comparison Operators
+        x = 5;
+        y = 3;
+        System.out.println("Comp Operators:");
+        System.out.println(x > y);
+        System.out.println(x < y);
+        System.out.println(x < 5 && x < 10);
+        System.out.println(x < 5 || y < 4);
+        System.out.println(x < 5 | x < 10);
     }
 }
