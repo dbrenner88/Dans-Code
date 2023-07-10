@@ -16,31 +16,25 @@ class CalorieCalculator:
 
         with open(metFile, newline='') as metFile:
             metReaderDict = csv.DictReader(metFile)
-            for row in metReaderDict:
-                if row['General Category'] == metSports:
-                    specCat = row['Specific Category']
-                    metVal = row['Summary MET value']
-                    sportsMetVals[specCat] = metVal
+            sportsMetVals = {row['Specific Category']: row['Summary MET value']
+                             for row in metReaderDict if row['General Category'] == metSports}
         return sportsMetVals
 
     def fuzzyMatch(self, pattern, string):
-        pattern = pattern.lower()
-        string = string.lower()
-        return pattern in string
+        return pattern.lower() in string.lower()
 
     def findExercise(self):
         metVals = self.metVals()
         validExercises = list(metVals.keys())
+        while True:
+            self.exercise = input("Enter your exercise: ").strip()
+            matchingExercises = [
+                exercise for exercise in validExercises if self.fuzzyMatch(self.exercise, exercise)]
 
-        self.exercise = input("Enter in your exercise: ")
-
-        matchingExercises = [exercise for exercise in validExercises if self.fuzzyMatch(
-            self.exercise, exercise)]
-        print(matchingExercises)
-
-        while not matchingExercises:
-            print("invalid Exercise")
-            self.exercise = input("Enter in your exercise: ")
+            if matchingExercises:
+                break
+            else:
+                print("Invalid exercise. Please try again.")
 
         if len(matchingExercises) > 1:
             print("Multiple matching exercises found. Please choose one:")
@@ -61,39 +55,30 @@ class CalorieCalculator:
                 self.weight = float(input("Enter Your Weight (in lbs): "))
                 break
             except ValueError:
-                print("invalid Weight")
+                print("Invalid Weight, please try again.")
 
-        kgs = float(self.weight) * 0.45359237
+        kgs = self.weight * 0.45359237
         return kgs
 
+    def validTime(self, prompt, minVal, maxVal):
+        while True:
+            try:
+                value = (int(input(prompt)))
+                if minVal <= value <= maxVal:
+                    return value
+                else:
+                    print(
+                        f"Invalid value. Please enter a number between {minVal} and {maxVal}.")
+            except ValueError:
+                print("Invalid Value. Please Enter a Valid Integer")
+
     def calcTime(self):
-        while True:
-            try:
-                self.exerciseHours = int(
-                    input("Enter in the number of hours exercised: "))
-                break
-            except ValueError:
-                print("not a correct value. try again")
-        while True:
-            try:
-                self.exerciseMin = int(
-                    input("Enter in the number of minutes exercised: "))
-                if 0 <= self.exerciseMin <= 60:
-                    break
-                else:
-                    print("not a valid minute number, please enter between 0-60.")
-            except ValueError:
-                print("not a correct value. try again")
-        while True:
-            try:
-                self.exerciseSec = int(
-                    input("Enter in the number of seconds exercised: "))
-                if 0 <= self.exerciseSec <= 60:
-                    break
-                else:
-                    print("not between 0-60. please enter in again.")
-            except ValueError:
-                print("not a correct value. try again")
+        self.exerciseHours = self.validTime(
+            "Enter the number of hours exercised: ", 0, 24)
+        self.exerciseMin = self.validTime(
+            "Enter the number of minutes exercised: ", 0, 60)
+        self.exerciseSec = self.validTime(
+            "Enter the number of seconds exercised: ", 0, 60)
 
         timeExercising = float(
             self.exerciseHours) + float(self.exerciseMin / 60) + float(self.exerciseSec / 360)
@@ -106,4 +91,4 @@ class CalorieCalculator:
 
 findCalories = CalorieCalculator()
 calories = findCalories.calcCalories()
-print("Exercise Calories: ", calories)
+print("Exercise Calories: ", round(calories, 2))
