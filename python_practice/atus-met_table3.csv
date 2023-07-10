@@ -243,6 +243,8 @@ Major Category,General Category,Specific Category,Summary MET value
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",02 Playing baseball,5.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",03 Playing basketball,8.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",04 Biking,8.00
+"13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation","04b Biking 18-20 mph",12.00
+"13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation","04c Biking 20-22 mph",14.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",05 Playing billiards,2.50
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",06 Boating,4.64
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",07 Bowling,3.00
@@ -263,6 +265,8 @@ Major Category,General Category,Specific Category,Summary MET value
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",22 Rollerblading,6.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",23 Playing rugby,10.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",24 Running,7.50
+"13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",24a Running 6 to 6.5pmh,9.00
+"13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",24b Running 6.5 to 7mph,10.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation","25 Skiing, ice skating, snowboarding",7.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",26 Playing soccer,7.00
 "13 Sports, Exercise, and Recreation","01 Participating in Sports, Exercise, or Recreation",27 Softball,5.00
