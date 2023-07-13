@@ -22,7 +22,7 @@ export const LearningWithDanImage = () => {
 }
 
 export const LinkedInButton = () => {
-  const linkedinUrl = 'https://www.linkedin.com/in/brennerdaniel/';
+  const linkedinUrl = 'https://www.linkedin.com/in/brennerdaniel/'
 
   return (
       <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
