@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import Layout from '#components/global.layouts'
+import Layout from '../../components/global.layouts.js'
 
 export default function FirstPost () {
   return (
@@ -15,7 +15,6 @@ export default function FirstPost () {
                     style={{ border: '1px solid #EEE', background: 'white' }}
                     frameBorder="0">
                     </iframe>
-      {/* <iframe src="https://www.learningwithdan.com/" width={500} height={200}></iframe> */}
         </Layout>
   )
 }
