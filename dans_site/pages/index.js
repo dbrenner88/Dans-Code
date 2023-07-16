@@ -23,7 +23,7 @@ export default function Home() {
           &nbsp;and come learn with me!
         </p>
         <p>
-          <Link href="/posts/first-post">Come checkout my first post!</Link>
+          <Link href="/lwd">Come checkout some of my articles!</Link>
         </p>
       </section>
     </Layout>
