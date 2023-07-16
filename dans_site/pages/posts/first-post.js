@@ -1,20 +1,21 @@
-import React from 'react'
-import Head from 'next/head'
-import Layout from '../../components/global.layouts.js'
+import React from 'react';
+import Head from 'next/head';
+import Layout from '../../components/global.layouts.js';
 
-export default function FirstPost () {
+export default function FirstPost() {
   return (
-        <Layout>
-            <Head>
-                <title>Learning & Growing</title>
-            </Head>
-            <h1>First Post </h1>
-            <iframe src="https://www.learningwithdan.com/embed"
-                    width="800"
-                    height="220"
-                    style={{ border: '1px solid #EEE', background: 'white' }}
-                    frameBorder="0">
-                    </iframe>
-        </Layout>
-  )
+    <Layout>
+      <Head>
+        <title>Learning & Growing</title>
+      </Head>
+      <h1>First Post </h1>
+      <iframe
+        src="https://www.learningwithdan.com/embed"
+        width="800"
+        height="220"
+        style={{ border: '1px solid #EEE', background: 'white' }}
+        frameBorder="0"
+      ></iframe>
+    </Layout>
+  );
 }
