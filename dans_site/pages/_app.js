@@ -1,10 +1,13 @@
-import '../styles/global.css';
+import '../styles/globals.css';
+import Layout from '../components/layout';
 import PropTypes from 'prop-types';
 
 function App({ Component, pageProps }) {
-  return ( 
+  return (
+    <Layout>
       <Component {...pageProps} />
-  )
+    </Layout>
+  );
 }
 
 App.propTypes = {

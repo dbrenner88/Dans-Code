@@ -1,20 +1,20 @@
-import Link from "next/link"
+import Link from 'next/link';
 
 export const Navbar = () => {
   return (
     <>
-        <nav className="bg-gray-800 p-4 z-50">
-      <div className="container mx-auto flex items-center justify-between">
-        <div>
-          <Link href="/" className="text-white text-2xl font-bold">
-            My Website
-          </Link>
+      <nav className="bg-gray-800 p-4 z-50">
+        <div className="container mx-auto flex items-center justify-between">
+          <div>
+            <Link href="/" className="text-white text-2xl font-bold">
+              My Website
+            </Link>
           </div>
-          </div>
-          </nav>
+        </div>
+      </nav>
     </>
-  )
-}
+  );
+};
 
 /*
 

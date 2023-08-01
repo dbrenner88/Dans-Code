@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Navbar } from '../components/navbar';
+import Navbar from './navbar';
 import PropTypes from 'prop-types';
 import styles from '../styles/layout.module.css';
 
