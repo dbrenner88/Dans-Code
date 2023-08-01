@@ -2,7 +2,9 @@ import '../styles/global.css';
 import PropTypes from 'prop-types';
 
 function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return ( 
+      <Component {...pageProps} />
+  )
 }
 
 App.propTypes = {
