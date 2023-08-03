@@ -1,14 +1,28 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import utilStyles from '../styles/utils.module.css';
 
 export const Navbar = () => {
   return (
     <>
-      <nav className="bg-gray-800 p-4 z-50">
+      <nav className="bg-cyan-800 p-4 z-50">
         <div className="container mx-auto flex items-center justify-between">
-          <div>
-            <Link href="/" className="text-white text-2xl font-bold">
-              My Website
-            </Link>
+            <div className="container mx-auto flex justify-between items-center">
+            <Link href="/" >
+            <Image
+                    priority
+                    src="/images/profile.jpg"
+                    className={utilStyles.borderCircle}
+                    height={50}
+                    width={50}
+                    alt=""
+            />
+                   </Link>
+                </div>
+            <div className="flex space-x-4">
+          <Link href="/" passHref>
+            <div className="text-white cursor-pointer">Home</div>
+          </Link>
           </div>
         </div>
       </nav>
