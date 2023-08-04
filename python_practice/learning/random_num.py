@@ -11,7 +11,3 @@ print(rand_float2)
 
 rand_flt = rand_float * 5
 print(rand_flt)
-
-states_usa = ["red", "white", "blue"]
-states_usa.append("awwww yeasshhhh")
-print(states_usa)
