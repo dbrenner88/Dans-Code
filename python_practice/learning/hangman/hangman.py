@@ -1,18 +1,28 @@
 import random
+import csv
 import hangman_art as art
 import hangman_words as words
 
 word_list = words.word_list
 stages = art.stages
-chosen_word = random.choice(word_list)
-word_length = len(chosen_word)
 end_of_game = False
 lives = 6
 guessed_letters = ''
 
+file_path = 'more_words.csv'
+
+extended_word_list = word_list
+
+with open(file_path, newline='') as more_words:
+    csv_reader = csv.reader(more_words)
+    for row in csv_reader:
+        extended_word_list.append(row[0])
+
+chosen_word = random.choice(extended_word_list)
+word_length = len(chosen_word)
+
 print(art.logo)
 
-# Create blanks
 display = []
 for _ in range(word_length):
     display += "_"
@@ -21,7 +31,8 @@ while end_of_game == False:
     guess = input("Guess a letter: ").lower()
 
     if guess in guessed_letters:
-        print(f"You already guessed the letter {guess}. Try Again!")
+        print(
+            f"You already guessed the letter {guess}. Try Again!\nHere are the letters you have guessed already: {guessed_letters}.")
     else:
         for position in range(word_length):
             letter = chosen_word[position]
