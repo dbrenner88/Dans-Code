@@ -33,6 +33,7 @@ while end_of_game == False:
     if guess in guessed_letters:
         print(
             f"You already guessed the letter {guess}. Try Again!\nHere are the letters you have guessed already: {guessed_letters}.")
+        print(f"{' '.join(display)}")
     else:
         for position in range(word_length):
             letter = chosen_word[position]
