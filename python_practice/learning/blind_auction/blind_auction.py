@@ -12,26 +12,15 @@ bids = {}
 
 
 def calculate_winner(dict):
-    winning_bid = 0
-    winning_name = []
+    winning_bid = 0.0
+    winning_name = ''
 
     for val in dict:
-        if int(dict[val]) >= winning_bid:
-            winning_bid = int(dict[val])
-
-            if int(dict[val]) == winning_bid:
-                winning_name.append(val)
-            else:
-                winning_name = val
-
-            winning_name_string = ''
-            for name in winning_name:
-                if winning_name_string == '':
-                    winning_name_string = name
-                else:
-                    winning_name_string += ' and ' + name
+        if float(dict[val]) >= winning_bid:
+            winning_bid = float(dict[val])
+            winning_name = val
     print(
-        f"Th winning_bid is ${winning_bid}. Congrats {winning_name_string}, you won!")
+        f"Th winning_bid is ${winning_bid}. Congrats {winning_name}, you won!")
 
 
 print(a.logo)
