@@ -9,35 +9,43 @@ def clear_screen():
 end_program = False
 yes_no_validator = ['yes', 'no']
 bids = {}
+prize = ''
 
 
-def calculate_winner(dict):
+def calculate_winner(dict, auction_prize):
     winning_bid = 0.0
     winning_name = ''
 
     for val in dict:
-        if float(dict[val]) >= winning_bid:
+        if float(dict[val]) > winning_bid:
             winning_bid = float(dict[val])
             winning_name = val
     print(
-        f"Th winning_bid is ${winning_bid}. Congrats {winning_name}, you won!")
+        f"The winning_bid is ${winning_bid:.2f}. Congrats {winning_name}, you won the {auction_prize}!\n")
 
 
 print(a.logo)
 print("\nWelcome to the silent auction! Please Enter your name and bid below:\n")
+prize = input("What is the prize people are bidding on? ")
 
-while end_program is False:
-
+while not end_program:
+    print(f"\nThe prize you are biding on is {prize}. Good Luck!\n")
     name = input("What is your name?\n")
-    bid = input("What is your bid? (in dollars)\n")
+
+    bid = float(input("What is your bid? (in dollars)\n$"))
 
     bids[name] = bid
 
-    more_bidders = input("Are there any more bidders? (Yes or No)\n").lower()
+    more_bidders = ''
 
-    if more_bidders == "no":
-        end_program = True
-        calculate_winner(bids)
-        print("Good Bye!")
-    elif more_bidders == "yes":
-        print(clear_screen())
+    while more_bidders not in (yes_no_validator):
+        more_bidders = input(
+            "Are there any more bidders? (Yes or No)\n").lower()
+
+        if more_bidders == "no":
+            print(clear_screen())
+            end_program = True
+            calculate_winner(dict=bids, auction_prize=prize)
+            print("Good Bye!\n")
+        elif more_bidders == "yes":
+            print(clear_screen())
