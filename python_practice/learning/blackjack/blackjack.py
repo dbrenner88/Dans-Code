@@ -44,9 +44,9 @@ def start_game(hand):
 
 def final_hand(p_hand, p_score, d_hand, d_score):
     print(
-        f"This is your final hand: {p_hand}. Your score was: {p_score}.")
+        f"  This is your final hand: {p_hand}. Your score was: {p_score}.")
     print(
-        f"This is the dealer's hand:{d_hand}. The Dealer's score was {d_score}.")
+        f"  This is the dealer's hand:{d_hand}. The Dealer's score was {d_score}.")
 
 
 def blackjack():
@@ -58,8 +58,8 @@ def blackjack():
     start_game(player_hand)
     start_game(dealer_hand)
     print(
-        f"This is your hand: {player_hand}. Your score is {calculate_score(player_hand)}")
-    print(f"This is the dealer's first card: {dealer_hand[0]}")
+        f"  This is your hand: {player_hand}. Your score is {calculate_score(player_hand)}")
+    print(f"    This is the dealer's first card: {dealer_hand[0]}")
 
     player_score = calculate_score(player_hand)
     dealer_score = calculate_score(dealer_hand)
@@ -67,17 +67,17 @@ def blackjack():
     if player_score == 21 and dealer_score == 21:
         player_hand_end = True
         dealer_hand_end = True
-        print("It's a tie, you and the dealer both got blackjack.")
+        print(" It's a tie.")
         final_hand(player_hand, player_score, dealer_hand, dealer_score)
     elif player_score == 21:
         player_hand_end = True
         dealer_hand_end = True
-        print("Congrats you won!")
+        print(" Congrats you won!")
         final_hand(player_hand, player_score, dealer_hand, dealer_score)
     elif dealer_score == 21:
         player_hand_end = True
         dealer_hand_end = True
-        print("You Lose. The Dealer wins.")
+        print(" You Lose. The Dealer wins.")
         final_hand(player_hand, player_score, dealer_hand, dealer_score)
 
     while not player_hand_end:
@@ -88,13 +88,13 @@ def blackjack():
             dealer_score = calculate_score(dealer_hand)
             if player_score > 21:
                 player_hand_end = True
-                print("You Lose. The Dealer wins.")
+                print(" You Lose. The Dealer wins.")
                 final_hand(player_hand, player_score,
                            dealer_hand, dealer_score)
             else:
                 print(
-                    f"This is your hand: {player_hand}. Your score is: {player_score}")
-                print(f"This is the dealer's first card: {dealer_hand[0]}")
+                    f"  This is your hand: {player_hand}. Your score is: {player_score}")
+                print(f"    This is the dealer's first card: {dealer_hand[0]}")
         else:
             player_hand_end = True
             dealer_score = calculate_score(dealer_hand)
@@ -105,17 +105,17 @@ def blackjack():
                     dealer_hand.append(deal_card())
                 elif dealer_score > 21:
                     dealer_hand_end = True
-                    print("You win.")
+                    print(" You win.")
                     final_hand(player_hand, player_score,
                                dealer_hand, dealer_score)
                 elif dealer_score > player_score:
                     dealer_hand_end = True
-                    print("You lose.")
+                    print(" You lose.")
                     final_hand(player_hand, player_score,
                                dealer_hand, dealer_score)
                 elif dealer_score < player_score:
                     dealer_hand_end = True
-                    print("You win.")
+                    print(" You win.")
                     final_hand(player_hand, player_score,
                                dealer_hand, dealer_score)
                 elif dealer_score == player_score:
