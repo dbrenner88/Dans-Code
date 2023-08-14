@@ -20,7 +20,7 @@ def set_level():
             else:
                 raise ValueError
         except ValueError:
-            print("Invalid level. Please choose hard or easy")
+            print("Invalid level. Please choose hard or easy.")
 
 
 def check_answer(guess, final_answer, turns):
@@ -39,11 +39,20 @@ def game():
     print("Welcome to the number guessing game.\nI'm thinking of a number between 1 - 100.")
     number_of_guesses = set_level()
     answer = r.randint(1, 100)
-    guess = 0
     while number_of_guesses != answer:
         print(
             f"You have {number_of_guesses} attempts remaining to guess the number.")
-        guess = int(input("Guess a number: "))
+
+        guess = ''
+
+        while True:
+            try:
+                guess = int(input("Guess a number: "))
+                int(guess)
+                break
+            except ValueError:
+                print("Invalid entry. Please enter in a number.")
+
         number_of_guesses = check_answer(guess, answer, number_of_guesses)
         if number_of_guesses == 0:
             print(
