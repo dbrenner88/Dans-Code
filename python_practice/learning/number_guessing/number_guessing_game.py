@@ -10,17 +10,18 @@ modes = {
 def set_level():
     valid_inputs = ["easy", "hard"]
     level = ''
-    while level not in valid_inputs:
+    while True:
         try:
             level = input(
                 "What level do you want to play (easy or hard)? ").lower()
             if level in valid_inputs:
-                guesses = modes[level]
-                return guesses
+                break
             else:
                 raise ValueError
         except ValueError:
             print("Invalid level. Please choose hard or easy.")
+    guesses = modes[level]
+    return guesses
 
 
 def check_answer(guess, final_answer, turns):
@@ -46,7 +47,6 @@ def game():
         while True:
             try:
                 guess = int(input("Guess a number: "))
-                int(guess)
                 break
             except ValueError:
                 print("Invalid entry. Please enter in a number.")
