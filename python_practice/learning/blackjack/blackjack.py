@@ -1,9 +1,10 @@
 import blackjack_art as a
 import random as r
+import os
 
-cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-player_hand_end = False
-dealer_hand_end = False
+
+def clear_screen():
+    _ = os.system('clear')
 
 
 def play():
@@ -12,10 +13,12 @@ def play():
     if to_play == 'n':
         print("Good bye!")
     elif to_play == 'y':
+        clear_screen()
         blackjack()
 
 
 def deal_card():
+    cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
     card = r.choice(cards)
     return card
 
@@ -123,16 +126,7 @@ def blackjack():
                     print("You tie.")
                     final_hand(player_hand, player_score,
                                dealer_hand, dealer_score)
-    to_play = input(
-        "Would you like to play a game of blackjack? Type 'y' or 'n': ").lower()
-    if to_play == 'n':
-        print("Good bye!")
-    elif to_play == 'y':
-        player_hand_end = False
-        dealer_hand_end = False
-        player_hand = []
-        dealer_hand = []
-        blackjack()
+    play()
 
 
 play()
