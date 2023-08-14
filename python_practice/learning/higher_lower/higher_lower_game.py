@@ -54,6 +54,11 @@ def game():
 
     while not end_game:
         print(art.logo)
+        celebs['A'] = celebs['B']
+        celebs['B'] = pick_random()
+        if celebs['A'] == celebs['B']:
+            celebs['B'] = pick_random()
+
         if score > 0:
             print(f"That was correct! Your score is {score}.")
         print(f"Compare A: {format_compare(celebs['A'])}")
@@ -61,23 +66,32 @@ def game():
         print(art.vs)
         print(f"Compare B: {format_compare(celebs['B'])}")
         # ask the user who has more followers A or B
-        user_guess = input("Who has more followers? Type 'A' or 'B': ").upper()
+        correct_inputs = ['A', 'B']
+        user_guess = ''
+        while True:
+            try:
+                user_guess = input(
+                    "Who has more followers? Type 'A' or 'B': ").upper()
+                if user_guess in correct_inputs:
+                    break
+                else:
+                    raise ValueError
+            except ValueError:
+                print("   Incorrect Entry, please enter 'A or 'B'.")
+
         celeb_a_followers = celebs['A']['follower_count']
         celeb_b_followers = celebs['B']['follower_count']
 
         is_true = check_answer(
             user_guess, celeb_a_followers, celeb_b_followers)
 
+        clear_screen()
+
         if is_true:
             score += 1
             print(f"That was correct! Your score is {score}.")
-            celebs['A'] = celebs['B']
-            celebs['B'] = pick_random()
-            if celebs['A'] == celebs['B']:
-                celebs['B'] = pick_random()
-            clear_screen()
+
         else:
-            clear_screen()
             end_game = True
             print(f"Sorry, that was incorrect. Your final score is {score}.")
 
