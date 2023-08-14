@@ -43,8 +43,6 @@ def game():
         print(
             f"You have {number_of_guesses} attempts remaining to guess the number.")
 
-        guess = ''
-
         while True:
             try:
                 guess = int(input("Guess a number: "))
