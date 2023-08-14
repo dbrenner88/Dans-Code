@@ -5,7 +5,6 @@ modes = {
     "easy": 10,
     "hard": 5
 }
-print(art.logo)
 
 
 def set_level():
@@ -26,6 +25,7 @@ def check_answer(guess, final_answer, turns):
 
 
 def game():
+    print(art.logo)
     print("Welcome to the number guessing game.\nI'm thinking of a number between 1 - 100.")
     number_of_guesses = set_level()
     answer = r.randint(1, 100)
