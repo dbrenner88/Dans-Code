@@ -94,7 +94,7 @@ def transaction(coffee, coins_in):
         if cost < coins_in:
             change = round(coins_in - cost, 2)
             print(f"Here is ${change:.2f} dollars in change.")
-        print(f"Here is your {coffee}. Enjoy!")
+        print(f"Here is your {coffee} ☕️. Enjoy!")
 
 
 menu_list = []
