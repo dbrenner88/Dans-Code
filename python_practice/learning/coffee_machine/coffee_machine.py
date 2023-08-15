@@ -32,10 +32,10 @@ resources = {
 }
 
 coin_types = {
-    "penny": .01,
-    "nickel": .05,
-    "dime": .10,
-    "quarter": .25,
+    "pennies": .01,
+    "nickels": .05,
+    "dimes": .10,
+    "quarters": .25,
 }
 
 
@@ -46,7 +46,7 @@ def machine_report(resources_left):
         elif key == 'coffee':
             print(f"{key}: {resources_left[key]}g")
         elif 'money' in key:
-            print(f"{key}: ${resources_left[key]}")
+            print(f"{key}: ${resources_left[key]:.2f}")
         else:
             print("money: $0.00")
 
@@ -54,12 +54,10 @@ def machine_report(resources_left):
 def check_resources(selection):
     resources_left = resources
     request = MENU[selection]['ingredients']
-    for key in request:
-        if key in request and key in resources_left:
-            amt_left = resources_left[key] - request[key]
-            if amt_left < 0:
-                print(f"Sorry there is not enough of {key}.")
-                return False
+    for item in request:
+        if resources_left[item] <= request[item]:
+            print(f"Sorry there is not enough of {item}.")
+            return False
     return True
 
 
@@ -72,13 +70,12 @@ def int_validation(number):
             print("Invalid entry, must be an integer.")
 
 
-def process_coins():
-    quarters = int_validation("How many quarters? ")
-    dimes = int_validation("How many dimes? ")
-    nickels = int_validation("How many nickels? ")
-    pennies = int_validation("How many pennies? ")
-    total_coins = quarters * .25 + dimes * .1 + nickels * .05 + pennies * .01
-    return total_coins
+def process_coins(coins):
+    print("Please insert coins.")
+    total_amt = 0
+    for coin in coins:
+        total_amt += int_validation(f"How many {coin}? ") * coins[coin]
+    return total_amt
 
 
 def transaction(coffee, coins_in):
@@ -117,8 +114,7 @@ def coffee_maker():
         elif coffee_request in menu_list:
             enough_resources = check_resources(coffee_request)
             if enough_resources:
-                print("Please insert coins.")
-                coins_inserted = process_coins()
+                coins_inserted = process_coins(coin_types)
                 transaction(coffee_request, coins_inserted)
 
 
