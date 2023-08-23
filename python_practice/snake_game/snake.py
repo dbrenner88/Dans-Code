@@ -67,3 +67,23 @@ class Snake():
         """adding a new segment to the snake"""
         pos = self.segments[-1].position()
         self.add_segment(pos)
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.start_game()
+        self.head = self.segments[0]
+
+    def set_level(self, user_level):
+        speed = 0.1
+    # set level
+        if user_level == 'hard':
+            speed = 0.05
+        elif user_level == 'medium':
+            speed = 0.1
+        elif user_level == 'easy':
+            speed = 0.2
+        else:
+            speed
+        return speed

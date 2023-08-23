@@ -1,0 +1,7 @@
+{
+    "high_scores": {
+        "easy": 0,
+        "hard": 1,
+        "medium": 0
+    }
+}
